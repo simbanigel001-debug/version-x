@@ -1,13 +1,90 @@
-/* Reset */
-body { margin: 0; background: #121212; color: #e0e0e0; font-family: sans-serif; }
+/* GitHub Dark Theme Color Palette */
+:root {
+  --canvas-default: #0d1117;      /* Main Background */
+  --canvas-subtle: #161b22;       /* Panels/Sidebar */
+  --border-default: #30363d;      /* Dividers/Borders */
+  --fg-default: #c9d1d9;          /* Main Text */
+  --fg-muted: #8b949e;            /* Muted Text */
+  --accent-fg: #58a6ff;           /* Link Blue */
+  --success-bg: #238636;          /* Green Button */
+  --success-hover: #2ea043;
+}
 
-/* Keep elements in their natural flow */
-#app { display: flex; height: 100vh; }
+* { box-sizing: border-box; }
 
-.sidebar { width: 300px; padding: 20px; background: #1a1a1a; overflow-y: auto; }
-.canvas-area { flex: 1; background: #0a0a0a; position: relative; }
-.inspector { width: 300px; padding: 20px; background: #1a1a1a; overflow-y: auto; }
+body {
+  margin: 0;
+  background-color: var(--canvas-default);
+  color: var(--fg-default);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  height: 100vh;
+}
 
-/* Just style the buttons/inputs, don't move them */
-button { background: #333; color: white; border: 1px solid #444; padding: 8px; cursor: pointer; }
-input { background: #222; border: 1px solid #444; color: white; padding: 5px; }
+#app { display: flex; height: 100%; }
+
+/* Sidebar */
+.sidebar {
+  width: 320px;
+  background-color: var(--canvas-subtle);
+  border-right: 1px solid var(--border-default);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow-y: auto;
+}
+
+/* Sections */
+.project-controls {
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-default);
+  margin-bottom: 10px;
+}
+
+.panel-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--fg-muted);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+/* Inputs */
+label { font-size: 12px; color: var(--fg-default); margin-bottom: 4px; display: block; }
+
+input, select {
+  background-color: var(--canvas-default);
+  border: 1px solid var(--border-default);
+  color: var(--fg-default);
+  padding: 8px 12px;
+  border-radius: 6px;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+input:focus { border-color: var(--accent-fg); outline: none; box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.3); }
+
+/* Buttons */
+button {
+  background-color: var(--canvas-subtle);
+  border: 1px solid var(--border-default);
+  color: var(--fg-default);
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover { background-color: #30363d; border-color: #8b949e; }
+
+/* Primary Green Buttons */
+#addCompartmentBtn, #generateLayout { 
+    background-color: var(--success-bg); 
+    color: white; 
+    border: none; 
+}
+#addCompartmentBtn:hover, #generateLayout:hover { background-color: var(--success-hover); }
+
+/* Layout Canvas */
+.canvas-area { flex: 1; padding: 24px; background-color: var(--canvas-default); }
