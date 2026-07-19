@@ -1,3 +1,4 @@
+/* 3d-shelf-system.js - Clean Version */
 const Interior3DSystem = {
     createPart: function(width, height, depth, x, y, z) {
         const geometry = new THREE.BoxGeometry(width, height, depth);
