@@ -1,0 +1,13 @@
+/* Reset */
+body { margin: 0; background: #121212; color: #e0e0e0; font-family: sans-serif; }
+
+/* Keep elements in their natural flow */
+#app { display: flex; height: 100vh; }
+
+.sidebar { width: 300px; padding: 20px; background: #1a1a1a; overflow-y: auto; }
+.canvas-area { flex: 1; background: #0a0a0a; position: relative; }
+.inspector { width: 300px; padding: 20px; background: #1a1a1a; overflow-y: auto; }
+
+/* Just style the buttons/inputs, don't move them */
+button { background: #333; color: white; border: 1px solid #444; padding: 8px; cursor: pointer; }
+input { background: #222; border: 1px solid #444; color: white; padding: 5px; }
