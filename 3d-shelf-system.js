@@ -19,24 +19,32 @@ const Interior3DSystem = {
         this.objects.push(mesh);
         return mesh;
     },
+   /* Inside 3d-shelf-system.js */
+const Interior3DSystem = {
     build() {
-        this.clear();
-        let x = 0;
-        Project.compartments.forEach(compartment => {
-            const width = compartment.width;
-            let shelfLevels = [500, 900, 1300, 1700, 2100];
-            shelfLevels.forEach(level => {
-                this.createPart(width, 16, 584, x + width/2, level, 0, 0xc9b18a, "Shelf");
-            });
-            if (compartment.type === "hanging") {
-                const geometry = new THREE.CylinderGeometry(15, 15, width, 32);
-                const material = new THREE.MeshStandardMaterial({ color: 0xaaaaaa });
-                const rail = new THREE.Mesh(geometry, material);
-                rail.rotation.z = Math.PI/2;
-                rail.position.set(x + width/2, 1500, -200);
-                ThreeSetup.scene.add(rail);
-                this.objects.push(rail);
-            }
+        console.log("Building 3D Scene...");
+        
+        // 1. Clear existing objects so they don't stack up
+        while(ThreeSetup.scene.children.length > 0){ 
+            ThreeSetup.scene.remove(ThreeSetup.scene.children[0]); 
+        }
+
+        // 2. Add Lighting (Crucial for visibility!)
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+        ThreeSetup.scene.add(ambientLight);
+        
+        const dirLight = new THREE.DirectionalLight(0xffffff, 0.8);
+        dirLight.position.set(500, 500, 500);
+        ThreeSetup.scene.add(dirLight);
+
+        // 3. Add a test box to verify rendering
+        const geometry = new THREE.BoxGeometry(500, 500, 500);
+        const material = new THREE.MeshStandardMaterial({ color: 0x4a90e2 });
+        const cube = new THREE.Mesh(geometry, material);
+        ThreeSetup.scene.add(cube);
+    }
+};
+console.log("I Design - Interior 3D System Loaded");
             if (compartment.drawers && compartment.drawers.enabled) {
                 for (let i = 0; i < compartment.drawers.quantity; i++) {
                     this.createPart(width - 60, 120, 450, x + width/2, 200 + (i * 150), -200, 0x444444, "Drawer Box");
