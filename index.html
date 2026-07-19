@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>I Design | Cabinet Studio</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include Three.js from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="sidebar"></div>
+        <div class="canvas-area">
+            <div id="notifications"></div>
+            <div class="design-board"></div>
+            <div id="commandPalette" class="hidden">
+                <input id="commandInput" type="text" placeholder="Enter command...">
+            </div>
+            <!-- Buttons for App functionality -->
+            <div style="padding:10px;">
+                <button id="themeBtn">Toggle Theme</button>
+                <button id="commandBtn">Command Palette</button>
+                <button id="startBtn">Start Project</button>
+                <button id="generateBtn">Generate</button>
+                <button id="saveBtn">Save</button>
+                <button id="newProjectBtn">New Project</button>
+                <span id="cabinetCount">0</span> Cabinets | 
+                <span id="partCount">0</span> Parts | 
+                <span id="sheetCount">0</span> Sheets
+            </div>
+        </div>
+        <div class="inspector"></div>
+    </div>
+
+    <!-- Load I Design System -->
+    <script src="i-design-core.js"></script>
+    <script src="engineering-rules.js"></script>
+    <script src="door-engine.js"></script>
+    <script src="layout-engine.js"></script>
+    <script src="cabinet-engine-integration.js"></script>
+    <script src="3d-shelf-system.js"></script>
+    <script src="project-ui.js"></script>
+    <script src="auto-layout-ui.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
