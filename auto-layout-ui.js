@@ -31,6 +31,18 @@ const AutoLayoutUI = {
         layout.forEach(item => { Project.addCompartment(item); });
         PreviewEngine.render();
         DimensionSystem.update();
+       /* In your UI handling file (e.g., auto-layout-ui.js) */
+document.getElementById('generateBtn').addEventListener('click', () => {
+    console.log("Generate button clicked!");
+    
+    // 1. Gather input data
+    const width = document.getElementById('wardrobeWidth').value;
+    
+    // 2. Trigger the engine
+    Interior3DSystem.build(); 
+    
+    console.log("3D System triggered for width:", width);
+});
         App.notify("Automatic wardrobe layout created");
     }
 };
